@@ -8,8 +8,8 @@ install:
   body: |
     **CLI** (Python ≥ 3.11, any OS):
     ```
-    uv tool install flowly-ai        # recommended
-    pip install --user flowly-ai     # or with pip
+    uv tool install flowly-ai     # recommended
+    pipx install flowly-ai        # alternative (isolated)
     ```
     Or the native installer (picks the right tool for you):
     ```
