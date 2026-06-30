@@ -72,3 +72,10 @@ stats:                         # live member-count voice channel
 
 ops:
   startup_notice: true         # post "bot online" to mod-log on (re)start
+
+docs:                          # /search indexes the live docs from the public repo
+  repo: Nocetic/flowly
+  branch: main
+  docs_path: content/docs/
+  site_base: https://useflowlyapp.com/en/docs
+  refresh_hours: 6
