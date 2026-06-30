@@ -79,3 +79,10 @@ docs:                          # /search indexes the live docs from the public r
   docs_path: content/docs/
   site_base: https://useflowlyapp.com/en/docs
   refresh_hours: 6
+
+github_feed:                   # rich commit/PR/issue embeds in #github (replaces the plain webhook)
+  enabled: true
+  repo: Nocetic/flowly
+  branch: main
+  channel: github
+  poll_minutes: 6

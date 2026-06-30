@@ -32,6 +32,7 @@ COGS = (
     "flowlybot.cogs.github_link",
     "flowlybot.cogs.stats",
     "flowlybot.cogs.docs_search",
+    "flowlybot.cogs.github_feed",
     "flowlybot.cogs.ops",
 )
 
