@@ -73,6 +73,14 @@ class FlowlyBot(commands.Bot):
         log.info("logged in as %s (%s)", self.user, getattr(self.user, "id", "?"))
         self._validate_targets()
 
+    async def on_command_error(self, ctx, error) -> None:
+        # We use no prefix commands (tags/FAQ are on_message listeners), so the
+        # command processor raises CommandNotFound on every `?tag`. Swallow it;
+        # log anything genuinely unexpected.
+        if isinstance(error, commands.CommandNotFound):
+            return
+        log.error("command error: %s", error, exc_info=error)
+
     def _validate_targets(self) -> None:
         guild = self.get_guild(self.config.guild_id)
         if guild is None:
