@@ -120,8 +120,8 @@ contribute:
 support:
   title: "Need help?"
   body: |
-    • Setup trouble → **#installation-help**
-    • Something broken → **#bug-reports**
-    • Config questions → **#configuration**
-    Include your OS, how you installed, and any error text so we can help fast.
+    Open a post in the **#help** forum and tag your platform (Desktop / iOS /
+    Android / CLI). Use the **Bug** tag for something broken, **Config** for
+    setup questions. Include your OS, how you installed, and any error text so
+    we can help fast.
   aliases: [help]

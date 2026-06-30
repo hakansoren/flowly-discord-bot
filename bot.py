@@ -27,6 +27,12 @@ COGS = (
     "flowlybot.cogs.faq",
     "flowlybot.cogs.releases",
     "flowlybot.cogs.welcome",
+    "flowlybot.cogs.voting",
+    "flowlybot.cogs.starboard",
+    "flowlybot.cogs.github_link",
+    "flowlybot.cogs.stats",
+    "flowlybot.cogs.docs_search",
+    "flowlybot.cogs.ops",
 )
 
 

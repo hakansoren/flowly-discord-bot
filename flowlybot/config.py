@@ -81,6 +81,7 @@ class Config:
     welcome: WelcomeConfig
     state_path: Path
     tags_path: Path
+    raw: dict = field(default_factory=dict)
 
     @classmethod
     def load(cls, path: str | Path) -> "Config":
@@ -124,4 +125,5 @@ class Config:
             welcome=WelcomeConfig(**(raw.get("welcome") or {})),
             state_path=base / (raw.get("state_path") or "state/state.json"),
             tags_path=base / (raw.get("tags_path") or "flowlybot/data/tags.yaml"),
+            raw=raw,
         )

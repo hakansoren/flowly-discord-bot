@@ -4,7 +4,7 @@ from pathlib import Path
 
 import yaml
 
-from flowlybot.detection import analyze, is_newer, version_tuple
+from flowlybot.detection import analyze, find_issue_refs, is_newer, version_tuple
 
 
 # --- auto-mod detection ---------------------------------------------------
@@ -65,6 +65,20 @@ def test_is_newer():
     assert is_newer("3.0.2", "3.0.1") is False
     assert is_newer(None, "1.0.0") is True
     assert is_newer("1.0.0", None) is False
+
+
+# --- GitHub issue refs ----------------------------------------------------
+
+def test_find_issue_refs():
+    assert find_issue_refs("see #123 and #45") == ["123", "45"]
+    assert find_issue_refs("dupes #7 #7") == ["7"]
+
+
+def test_issue_refs_ignores_non_refs():
+    assert find_issue_refs("no refs here") == []
+    assert find_issue_refs("a#5 inside word") == []          # part of a word
+    assert find_issue_refs("color #ff0000 hex") == []        # hex, has letters
+    assert find_issue_refs("url github.com/x/issues/9") == []
 
 
 # --- FAQ tags file --------------------------------------------------------

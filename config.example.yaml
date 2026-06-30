@@ -48,3 +48,27 @@ releases:
 welcome:
   enabled: true
   assign_member_role: true
+
+engagement:                    # auto 👍/👎 + thread on feature-request posts
+  feature_request_channel: feature-requests
+  vote_up: "👍"
+  vote_down: "👎"
+  auto_thread: true
+
+starboard:                     # N ⭐ reactions repost a message to #best-of
+  enabled: true
+  channel: best-of
+  emoji: "⭐"
+  threshold: 3
+
+github:                        # `#123` in dev channels → issue/PR link
+  repo: Nocetic/flowly
+  link_channels: [dev-chat, contributing, feature-requests, github]
+
+stats:                         # live member-count voice channel
+  enabled: true
+  member_channel_prefix: "👥 Members"
+  update_minutes: 10
+
+ops:
+  startup_notice: true         # post "bot online" to mod-log on (re)start

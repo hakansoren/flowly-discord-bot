@@ -89,6 +89,19 @@ def analyze(
 
 # --- release version comparison ------------------------------------------
 
+ISSUE_RE = re.compile(r"(?<![\w/#])#(\d{1,6})\b")
+
+
+def find_issue_refs(content: str) -> list[str]:
+    """Extract GitHub issue/PR refs like `#123` (not part of a word/url)."""
+    seen, out = set(), []
+    for n in ISSUE_RE.findall(content or ""):
+        if n not in seen:
+            seen.add(n)
+            out.append(n)
+    return out
+
+
 def version_tuple(v: str) -> tuple[int, ...]:
     nums = re.findall(r"\d+", v or "")
     return tuple(int(n) for n in nums[:4]) or (0,)
