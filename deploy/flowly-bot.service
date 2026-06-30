@@ -1,0 +1,29 @@
+# systemd unit for the Flowly community bot.
+# Install: copy to /etc/systemd/system/flowly-bot.service, then:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now flowly-bot
+# Logs: journalctl -u flowly-bot -f
+
+[Unit]
+Description=Flowly Community Discord Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=flowlybot
+WorkingDirectory=/opt/flowly-discord-bot
+EnvironmentFile=/opt/flowly-discord-bot/.env
+ExecStart=/opt/flowly-discord-bot/.venv/bin/python bot.py
+Restart=on-failure
+RestartSec=5
+
+# hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/opt/flowly-discord-bot/state /opt/flowly-discord-bot/logs
+
+[Install]
+WantedBy=multi-user.target

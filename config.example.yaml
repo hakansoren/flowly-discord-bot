@@ -1,0 +1,50 @@
+# Flowly community bot — configuration.
+# Copy to config.yaml and fill in. Secrets (the token) go in .env, NOT here.
+
+guild_id: 000000000000000000          # your server (guild) ID
+
+# Channels are referenced by NAME (renaming an ID never breaks anything).
+channels:
+  welcome: welcome
+  rules: rules
+  roles: roles
+  announcements: announcements
+  mod_log: moderator-only             # auto-mod actions are logged here
+
+roles:
+  member: Member                      # auto-assigned to new joiners
+
+automod:
+  enabled: true
+  exempt_roles: [Flowly]              # roles immune to auto-mod (mods are auto-exempt by permission)
+  delete_scam: true                   # delete phishing / scam-keyword messages
+  block_invites: true                 # delete non-whitelisted Discord invite links
+  allowed_invites: []                 # invite codes to allow, e.g. your own vanity
+  max_mentions: 5                     # more user-mentions than this in one message → action
+  timeout_on_severe_seconds: 600      # timeout length for severe hits (phishing/scam/mass-mention)
+  spam:
+    max_messages: 5                   # more than this many messages…
+    interval_seconds: 7               # …within this window → spam
+    timeout_seconds: 300
+  escalation:
+    enabled: true
+    window_seconds: 600               # repeat offences counted within this window
+    threshold: 3                      # this many severe hits → longer timeout
+    timeout_seconds: 3600
+
+faq:
+  prefix: "?"                         # ?install, ?byok, …
+  cooldown_seconds: 5
+  ephemeral: false                    # /faq replies visible to everyone (false) or just the caller (true)
+
+releases:
+  enabled: true
+  channel: announcements
+  poll_minutes: 15
+  pypi_package: flowly-ai
+  github_repo: Nocetic/flowly
+  announce_github_releases: true
+
+welcome:
+  enabled: true
+  assign_member_role: true

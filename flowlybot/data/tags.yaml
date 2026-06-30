@@ -1,0 +1,104 @@
+# FAQ / tag content. Edit freely — non-coders welcome.
+# Each entry:  key:  { title, body, link (optional), aliases (optional) }
+# Triggered in chat as ?<key>  (e.g. ?install) and via /faq.
+
+install:
+  title: "Installing Flowly"
+  body: |
+    **CLI** (any OS with Python 3.11+):
+    ```
+    uv tool install flowly-ai
+    flowly setup
+    flowly
+    ```
+    **Desktop app** (Mac / Windows / Linux): download from the site.
+    Prefer pip? `pip install flowly-ai` works too.
+  link: "https://useflowlyapp.com/docs"
+  aliases: [setup, getting-started]
+
+byok:
+  title: "Bring your own key (BYOK)"
+  body: |
+    Flowly is the agent — you bring the model. Use your own key for
+    Anthropic, OpenAI, OpenRouter, Gemini, Groq, xAI, or a local model.
+    Set it up with `flowly setup`, or in the Desktop app's Providers screen.
+    Your key stays on your machine.
+  aliases: [keys, apikey, key]
+
+providers:
+  title: "Supported model providers"
+  body: |
+    Anthropic · OpenAI · OpenRouter · Gemini · Groq · xAI/Grok · and any
+    local OpenAI-compatible server (Ollama, LM Studio, vLLM). Switch anytime —
+    the agent, memory, and channels don't change when you swap the engine.
+  aliases: [models, model]
+
+selfhost:
+  title: "Self-hosting Flowly"
+  body: |
+    Flowly is open source (Apache-2.0) and runs entirely on your own machine
+    or VPS — no account required if you bring your own key. Run the gateway
+    and connect your channels. See the self-hosting guide for the full setup.
+  link: "https://useflowlyapp.com/docs"
+  aliases: [self-host, vps, host]
+
+memory:
+  title: "Flowly's memory"
+  body: |
+    Flowly keeps a governed, time-aware memory of your world — it learns across
+    chats, and corrects itself instead of piling up stale facts. You stay in
+    control: review, edit, or clear what it remembers.
+  aliases: [mem]
+
+update:
+  title: "Updating Flowly"
+  body: |
+    **CLI:** `uv tool upgrade flowly-ai`  (or `pip install -U flowly-ai`)
+    **Desktop:** updates itself automatically — just relaunch when prompted.
+    **Mobile:** update from the App Store / Play Store.
+  aliases: [upgrade]
+
+desktop:
+  title: "Flowly Desktop"
+  body: |
+    The native desktop app for Mac, Windows, and Linux — manage your agent,
+    chat, connections, and memory with a UI. Auto-updates. Download from the site.
+  link: "https://useflowlyapp.com"
+
+mobile:
+  title: "Flowly on your phone"
+  body: |
+    Native apps for **iPhone** (App Store) and **Android** (Play Store). They
+    talk to your agent over the relay or a direct gateway — your phone becomes
+    a window into the same agent.
+  aliases: [ios, android, app]
+
+channels:
+  title: "Channels"
+  body: |
+    One agent, everywhere you are: desktop, phone, Telegram, Discord, Slack,
+    WhatsApp, iMessage, email, and the web. Connect a channel and the same
+    memory and tools come with it.
+  aliases: [integrations, telegram, slack]
+
+docs:
+  title: "Documentation"
+  body: "Guides, configuration, and reference for every feature."
+  link: "https://useflowlyapp.com/docs"
+
+contribute:
+  title: "Contributing"
+  body: |
+    Flowly's agent core is open source (Apache-2.0). Issues, PRs, and ideas are
+    welcome — check the repo, read CONTRIBUTING, and say hi in #dev-chat.
+  link: "https://github.com/Nocetic/flowly"
+  aliases: [contributing, oss, github]
+
+support:
+  title: "Need help?"
+  body: |
+    • Setup trouble → **#installation-help**
+    • Something broken → **#bug-reports**
+    • Config questions → **#configuration**
+    Include your OS, how you installed, and any error text so we can help fast.
+  aliases: [help]
